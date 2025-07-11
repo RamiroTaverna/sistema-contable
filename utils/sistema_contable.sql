@@ -1,13 +1,23 @@
 CREATE DATABASE IF NOT EXISTS sistema_contable;
 USE sistema_contable;
 
+CREATE TABLE IF NOT EXISTS empresas (
+  id_empresa INT PRIMARY KEY AUTO_INCREMENT,
+  nombre VARCHAR(100),
+  descripcion TEXT,
+  id_gerente INT,
+  FOREIGN KEY (id_gerente) REFERENCES usuarios(id)
+);
+
 CREATE TABLE IF NOT EXISTS usuarios (
   id INT PRIMARY KEY AUTO_INCREMENT,
+  id_empresa INT,
   nombre VARCHAR(100),
   correo VARCHAR(100) UNIQUE,
   contrasena VARCHAR(100),
   rol TINYINT,
-  empresa VARCHAR(100)
+  empresa VARCHAR(100),
+  FOREIGN KEY (id_empresa) REFERENCES empresas(id_empresa)
 );
 
 CREATE TABLE IF NOT EXISTS plan_cuentas (
