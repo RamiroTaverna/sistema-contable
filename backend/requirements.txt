@@ -1,0 +1,4 @@
+Jerarquia de la empresa:
+-una persona puede armar una empresa de X cantidad de personas + 1 generente (el gerente es el que crea la empresa), ese gerente debe administrar los asientos contables de las otras personas que esten en su empresa
+-cada usuario va a entrar a esa empresa y puede hacer asientos contables
+-hacer varios administradores que monitorizen todas las empresas (crud sobre las empresas) (rol docente)

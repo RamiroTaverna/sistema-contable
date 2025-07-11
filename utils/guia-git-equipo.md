@@ -11,6 +11,10 @@ git clone https://github.com/RamiroTaverna/sistema-contable.git
 cd sistema-contable
 npm install -g @angular/cli
 npm install
+pip install flask
+pip install flask_cors
+pip install mysql-connector-python
+
 ```
 
 ---
