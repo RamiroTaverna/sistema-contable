@@ -6,9 +6,11 @@ Esta guía explica cómo varios desarrolladores pueden trabajar juntos en un mis
 
 ## ✅ 1. Cloná el repositorio
 
-```bash
-git clone https://github.com/TU_USUARIO/TU_REPO.git
-cd TU_REPO
+```en la terminal: (tener instalado nodejs y python.)
+git clone https://github.com/RamiroTaverna/sistema-contable.git
+cd sistema-contable
+npm install -g @angular/cli
+npm install
 ```
 
 ---
