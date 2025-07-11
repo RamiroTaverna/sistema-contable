@@ -1,0 +1,9 @@
+<h2>Registro</h2>
+<form #form="ngForm" (ngSubmit)="registrar(form)">
+  <input name="nombre" [(ngModel)]="usuario.nombre" placeholder="Nombre"><br>
+  <input name="correo" [(ngModel)]="usuario.correo" placeholder="Correo"><br>
+  <input name="contrasena" [(ngModel)]="usuario.contrasena" type="password" placeholder="Contraseña"><br>
+  <input name="rol" [(ngModel)]="usuario.rol" placeholder="Rol"><br>
+  <input name="empresa" [(ngModel)]="usuario.empresa" placeholder="Empresa"><br>
+  <button type="submit">Registrar</button>
+</form>

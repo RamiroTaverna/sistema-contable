@@ -2,7 +2,7 @@ CREATE DATABASE IF NOT EXISTS sistema_contable;
 USE sistema_contable;
 
 CREATE TABLE IF NOT EXISTS usuarios (
-  id INT PRIMARY KEY UNIQUE,
+  id INT PRIMARY KEY AUTO_INCREMENT,
   nombre VARCHAR(100),
   correo VARCHAR(100) UNIQUE,
   contrasena VARCHAR(100),
@@ -11,7 +11,7 @@ CREATE TABLE IF NOT EXISTS usuarios (
 );
 
 CREATE TABLE IF NOT EXISTS plan_cuentas (
-  id_cuenta INT PRIMARY KEY UNIQUE,
+  id_cuenta INT PRIMARY KEY AUTO_INCREMENT,
   cod_rubro VARCHAR(50),
   rubro VARCHAR(100),
   cod_subrubro VARCHAR(50),
@@ -20,7 +20,7 @@ CREATE TABLE IF NOT EXISTS plan_cuentas (
 );
 
 CREATE TABLE IF NOT EXISTS transacciones (
-  id_transaccion INT PRIMARY KEY UNIQUE,
+  id_transaccion INT PRIMARY KEY AUTO_INCREMENT,
   tipo ENUM('ingreso', 'egreso'),
   doc_respaldatorio VARCHAR(100),
   fecha DATE,
@@ -30,7 +30,7 @@ CREATE TABLE IF NOT EXISTS transacciones (
 );
 
 CREATE TABLE IF NOT EXISTS asientos_diarios (
-  id_asiento INT PRIMARY KEY UNIQUE,
+  id_asiento INT PRIMARY KEY AUTO_INCREMENT,
   fecha DATE,
   num_asiento INT,
   doc_respaldatorio VARCHAR(100),
@@ -41,7 +41,7 @@ CREATE TABLE IF NOT EXISTS asientos_diarios (
 );
 
 CREATE TABLE IF NOT EXISTS detalle_asiento (
-  id_detalle INT PRIMARY KEY,
+  id_detalle INT PRIMARY KEY AUTO_INCREMENT,
   id_asiento INT,
   id_cuenta INT,
   tipo ENUM('debe', 'haber'),
@@ -51,7 +51,7 @@ CREATE TABLE IF NOT EXISTS detalle_asiento (
 );
 
 CREATE TABLE IF NOT EXISTS mayor_cuentas (
-  id_mayor INT PRIMARY KEY UNIQUE,
+  id_mayor INT PRIMARY KEY AUTO_INCREMENT,
   id_cuenta INT,
   fecha DATE,
   num_asiento INT,
@@ -62,7 +62,7 @@ CREATE TABLE IF NOT EXISTS mayor_cuentas (
 );
 
 CREATE TABLE IF NOT EXISTS estado_situacion_patrimonial (
-  id_estado INT PRIMARY KEY UNIQUE,
+  id_estado INT PRIMARY KEY AUTO_INCREMENT,
   cod_rubro VARCHAR(50),
   rubro VARCHAR(100),
   cod_subrubro VARCHAR(50),
@@ -71,7 +71,7 @@ CREATE TABLE IF NOT EXISTS estado_situacion_patrimonial (
 );
 
 CREATE TABLE IF NOT EXISTS estado_resultados (
-  id_resultado INT PRIMARY KEY UNIQUE,
+  id_resultado INT PRIMARY KEY AUTO_INCREMENT,
   cod_rubro VARCHAR(50),
   rubro VARCHAR(100),
   cod_subrubro VARCHAR(50),
@@ -81,7 +81,7 @@ CREATE TABLE IF NOT EXISTS estado_resultados (
 );
 
 CREATE TABLE IF NOT EXISTS estado_fondos (
-  id_fondo INT PRIMARY KEY UNIQUE,
+  id_fondo INT PRIMARY KEY AUTO_INCREMENT,
   cod_rubro VARCHAR(50),
   rubro VARCHAR(100),
   cod_subrubro VARCHAR(50),
@@ -91,7 +91,7 @@ CREATE TABLE IF NOT EXISTS estado_fondos (
 );
 
 CREATE TABLE IF NOT EXISTS analisis_indices (
-  id_indice INT PRIMARY KEY UNIQUE,
+  id_indice INT PRIMARY KEY AUTO_INCREMENT,
   activos_corrientes DECIMAL(12,2),
   pasivos_corrientes DECIMAL(12,2),
   indice_de_liquidez DECIMAL(12,4),
