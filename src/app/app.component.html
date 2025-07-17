@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <link rel="stylesheet" href="/app.component.css">
+</head>
+<header><app-encabezado></app-encabezado></header>
+<body>
+
+  <div class='box'>
+    <div class='wave -one'></div>
+    <div class='wave -two'></div>
+    <div class='wave -three'></div>
+
+  </div>
+  <div class="theme-switch" id="themeSwitch">
+    <div class="slider">
+      <span class="icon sun">🌙</span>
+      <span class="icon moon">☀️</span>
+    </div>
+  </div>
+  <section>
+  <div id="caja" class="clima" >
+    <h3 id="ubicacion"></h3>
+    <img id="icono-animado" src="" alt="" height="50" width="50">
+    <h4 id="temperatura-valor"></h4>
+    <h4 id="temperatura-descripcion"></h4>
+    
+</div>
+</section>
+
+  <router-outlet></router-outlet>
+  
+</body>
+<footer>
+  <app-footer></app-footer>
+</footer>
+</html>
