@@ -1,12 +1,20 @@
 CREATE DATABASE IF NOT EXISTS sistema_contable;
 USE sistema_contable;
 
+-- Primero tablas sin dependencias
+CREATE TABLE IF NOT EXISTS plan_cuentas (
+  id_cuenta INT PRIMARY KEY AUTO_INCREMENT,
+  cod_rubro VARCHAR(50),
+  rubro VARCHAR(100),
+  cod_subrubro VARCHAR(50),
+  subrubro VARCHAR(100),
+  cuenta VARCHAR(100)
+);
+
 CREATE TABLE IF NOT EXISTS empresas (
   id_empresa INT PRIMARY KEY AUTO_INCREMENT,
   nombre VARCHAR(100),
-  descripcion TEXT,
-  id_gerente INT,
-  FOREIGN KEY (id_gerente) REFERENCES usuarios(id)
+  descripcion TEXT
 );
 
 CREATE TABLE IF NOT EXISTS usuarios (
@@ -20,14 +28,9 @@ CREATE TABLE IF NOT EXISTS usuarios (
   FOREIGN KEY (id_empresa) REFERENCES empresas(id_empresa)
 );
 
-CREATE TABLE IF NOT EXISTS plan_cuentas (
-  id_cuenta INT PRIMARY KEY AUTO_INCREMENT,
-  cod_rubro VARCHAR(50),
-  rubro VARCHAR(100),
-  cod_subrubro VARCHAR(50),
-  subrubro VARCHAR(100),
-  cuenta VARCHAR(100)
-);
+-- Ahora que usuarios existe, agregamos el gerente a empresas
+ALTER TABLE empresas ADD COLUMN id_gerente INT;
+ALTER TABLE empresas ADD CONSTRAINT fk_gerente FOREIGN KEY (id_gerente) REFERENCES usuarios(id);
 
 CREATE TABLE IF NOT EXISTS transacciones (
   id_transaccion INT PRIMARY KEY AUTO_INCREMENT,
